@@ -34,21 +34,16 @@ const signJWTToken = user => {
 router.post('/register', (req, res) => {
   const { password } = req.body;
 
-  // Encrypt our naked password and store encrypted password along with the user info
   bcrypt.hash(password, SALT_ROUNDS, (err, hashedPassword) => {
     if (err) return res.status(500).json({ message: "Couldn't encrypt the password"});
 
-    // Create a new user with Bookshelf model
     new User({
       ...req.body,
       password: hashedPassword
     })
       .save()
       .then(newUser => {
-        // Sign JWT token with id and email as payload
         const token = signJWTToken(newUser);
-
-        // Send JWT token as a response
         return res.status(201).json({ authToken: token });
       })
       .catch(() => {
@@ -63,7 +58,6 @@ router.put("/answers/:id", (req,res) => {
   User.where({ id: req.params.id })
     .fetch()
     .then((user) => {
-      console.log(req.body) 
       user.save(
         req.body
       )
@@ -85,7 +79,6 @@ router.get("/homepage", (req,res) => {
 })
 
 
-// A Basic Login end point
 router.post('/login', (req, res) => {
   const { email, password } = req.body;
 
@@ -103,7 +96,6 @@ router.post('/login', (req, res) => {
       })
     })
     .catch(() => {
-      // If there is no user, throw error
       return res.status(400).json({ message: "User is not found" });
     })
 });
@@ -116,8 +108,6 @@ router.post('/login', (req, res) => {
     
     jwt.verify(token, JWT_SECRET, (err, decoded) => {
       if (err) return res.status(401).json({ message: 'The token is invalid' });
-  
-      console.log('Decoded token: ', decoded);
       const userId = decoded.id;
   
       User
@@ -136,8 +126,6 @@ router.post('/login', (req, res) => {
   router.get("/userprofile", (req,res) => {
     axios.get(`https://best-overwatch-api.herokuapp.com/player/psn/us/xAeonzov`)
     .then(user => {
-    console.log(user.data)
-    const data = JSON.stringify(user.data)
     res.json(user.data)
     })
     .catch(err => {

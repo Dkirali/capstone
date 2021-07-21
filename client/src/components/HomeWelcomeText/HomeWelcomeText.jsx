@@ -12,7 +12,7 @@ function HomeWelcomeText({ text }) {
     setTimeout(() => {
       setCurrentText(value => value + text.charAt(index.current))
       index.current += 1;
-    },500)
+    },200)
   },[currentText, text])
   
   return (

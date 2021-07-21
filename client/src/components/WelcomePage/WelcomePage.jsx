@@ -6,8 +6,6 @@ import { Redirect } from "react-router-dom";
 
 
 function WelcomePage(props) {
-
-  console.log(props)
   const messages = [`Is this actually ${props.data.firstName} ${props.data.lastName}???`, `We've heard rumours of the great ${props.data.gamertag} joining Gamers Unite and didn't believe it`, "I guess we were wrong...", `We don't want to keep the great ${props.data.gamertag} waiting`,"Just a few questions before we can help to find your long lost gaming partner"];
   const id = props.data.id
   const data = props.data.firstName

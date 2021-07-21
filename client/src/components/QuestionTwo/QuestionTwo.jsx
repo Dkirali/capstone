@@ -22,7 +22,6 @@ function QuestionTwo({dispatch,id})  {
       toast.error("Please enter a value")
       return false
     } else {
-      console.log("not empty")
       return true
     }
   }

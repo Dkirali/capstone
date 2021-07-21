@@ -21,9 +21,7 @@ const Capitalize = (word) => {
   return word.charAt(0).toUpperCase() + word.slice(1);
 } 
 
-function HomePage(props,lol) {
-  console.log(props)
-  console.log(lol)
+function HomePage(props) {
   const { id } = props.match.params
   const formattedId = parseInt(id.split(":")[1])
 
@@ -93,6 +91,7 @@ function HomePage(props,lol) {
         <HomeWelcomeUser text={`Hello ${currentUser.gamertag}`}/>
         <HomeWelcomeText text={"Here are the matches based on your preferences!"} />
       </div>
+      <div className="loki">
       <div className="homepage__content ">
           {allUsers.map((user) => {
             if(user.rank === currentUser.rank && user.crossplay === currentUser.crossplay) {
@@ -127,6 +126,7 @@ function HomePage(props,lol) {
               )
             }
           })}
+      </div>
       </div>
     </main>
     </>

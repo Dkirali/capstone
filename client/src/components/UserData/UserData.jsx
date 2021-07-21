@@ -61,11 +61,10 @@ function UserData(props) {
         description: state.description,
       })
       .then (res => {
-        console.log("in effect")
         console.log("success")
       })
       .catch (err => {
-        console.log("error no")
+        console.log(err)
       })
     }
   })

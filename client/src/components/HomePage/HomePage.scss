@@ -132,10 +132,6 @@ body {
         margin-top: 3rem;
       }
     }
-    
-    &-list {
-
-    }
 
     &-logo {
       height: 150px;
@@ -166,17 +162,9 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    background-color: #d3bfda;
     z-index: 1;
     height:auto;
-
-    @include tablet {
-      height:500px;
-    }
-
-    @include desktop {
-      height:600px;
-    }
+    padding-top: 2rem;
 
     &-top {
       display: flex;
@@ -377,4 +365,12 @@ body {
 .youtube:hover .nav__container-tooltip::before {
   background-color: #de463b;
   color: #ffffff;
+}
+
+.loki {
+    background-color: #d3bfda;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }

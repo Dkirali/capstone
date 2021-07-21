@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import axios from "axios"
 import { Link } from 'react-router-dom'
 import video from "../../assets/videos/login.mp4"
-import Rein from "../../assets/images/try.png"
+import Rein from "../../assets/images/rein.png"
 import "./LoginPage.scss"
 import { Redirect } from "react-router-dom";
-import { Route } from "react-router-dom";
 import HomePage from '../HomePage/HomePage';
 
 const baseUrl = 'http://localhost:8080/api/users';
@@ -37,7 +36,6 @@ class LoginPage extends Component {
 
     const { email, password } = this.loginForm.current;
 
-    // Login using axios POST
     axios.post(`${baseUrl}/login`, {
       email: email.value,
       password: password.value
@@ -122,7 +120,6 @@ class LoginPage extends Component {
       userInfo: {}
     }
     componentWillMount() {
-      // Here grab token from localStorage
       const authToken = sessionStorage.getItem('authToken');
   
       axios.get(`${baseUrl}/profile`, {
