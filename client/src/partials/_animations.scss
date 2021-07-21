@@ -1,0 +1,56 @@
+@keyframes animate1 {
+  0%{
+    transform:translateX(-100%)
+  }
+  100%{
+    transform:translateX(100%)
+  }
+}
+
+@keyframes animate2 {
+  0%{
+    transform:translateY(-100%)
+  }
+  100%{
+    transform:translateY(100%)
+  }
+}
+
+@keyframes animate3 {
+  0%{
+    transform:translateX(100%)
+  }
+  100%{
+    transform:translateX(-100%)
+  }
+}
+
+@keyframes animate4 {
+  0%{
+    transform:translateY(100%)
+  }
+  100%{
+    transform:translateY(-100%)
+  }
+}
+
+@keyframes animateButton {
+  0% {
+    background-position-y: 0;
+  }
+  100% {
+    background-position-y: -480px;
+  }
+}
+
+@keyframes animateBackground {
+  0% {
+        background-position: 0 0;
+  }
+  50% {
+        background-position: 400% 0;
+  }
+  100% {
+        background-position: 0 0;
+  }
+}

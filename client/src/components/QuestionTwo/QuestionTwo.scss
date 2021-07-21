@@ -1,0 +1,92 @@
+@use "../../partials/animations" as *;
+
+.second {
+    
+
+  &__data {
+
+    &-form{
+      align-items: center;
+      width: 300px;
+      height: 430px;
+      border-radius: 15px;
+      background: #0e0d0d;
+      border: 1px solid white;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      
+   
+
+      &-disappear {
+        display: none;
+      }
+    }
+
+    &-title {
+      color: white;
+      font-family: monospace;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+    }
+
+    &-label {
+      color: white;
+      font-family: monospace;
+      font-size: 18px;
+    }
+
+    &-input {
+      
+    }
+
+    &-button {
+      border-radius: 15px;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-family: monospace;
+      font-weight: 400;
+      padding: 0.5rem;
+      color: black;
+      transition: 0.5s;
+      border: none;
+      &:hover {
+        border: none;
+        background: #ec1840 url(https://i.postimg.cc/wBXGXbWN/pixel.png);
+        transition-delay: 0.8s;
+        background-size: 180px;
+        animation: animateButton 0.8s steps(8) forwards;
+      }
+      &:last-of-type {
+        border: none;
+        &:hover {
+          background: purple url(https://i.postimg.cc/FzBWFtKM/pixel2.png);
+        }
+      }
+    }
+  }
+}
+
+.img {
+  display: none;
+
+  &-visible {
+    display: flex;
+    width: 120px;
+    height: 120px;
+  }
+}
+

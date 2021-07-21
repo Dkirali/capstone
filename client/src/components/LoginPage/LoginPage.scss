@@ -1,0 +1,199 @@
+@use "../../partials/typography" as *;
+@use "../../partials/mixin" as *;
+@use "../../partials/animations" as *;
+
+.login {
+
+  &__video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5rem;
+
+    &-image {
+      height: 300px;
+      width: 300px;
+      position: absolute;
+      top: 120px;
+    }
+  }
+
+  &__content {
+    transition: 0.5;
+
+    &-details {
+    position: absolute;
+    top: 380px;
+    background-color: rgb(10 18 45 / 62%);
+    width: 200px;
+    display: flex;
+    height: 250px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    }
+  }
+
+  &__animation {
+    
+    &-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(to right,transparent,#f6f7f8);
+      animation: animate1 2s linear infinite;
+    }
+
+    &-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(to bottom,transparent,#f9fafa);
+      animation: animate2 2s linear infinite;
+      animation-delay: 1s;
+      
+    }
+
+    &-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(to left,transparent,#f9f9fa);
+      animation: animate3 2s linear infinite;
+      
+    }
+
+    &-left{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(to top,transparent,#f7f8fa);
+      animation: animate4 2s linear infinite;
+      animation-delay: 1s;
+    }
+  }
+  &__title {
+    color: rgb(250, 250, 250);
+    margin-bottom: 1rem;
+    font-family: monospace;
+
+  }
+
+  &__top {
+    margin-bottom: 3rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-find {
+      display: none;
+
+      &-error {
+        display: flex;
+        font-size: 12px;
+        color: rgba(247, 242, 242, 0.986)
+      }
+    }
+
+    &-user {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color:white;
+      font-family: monospace;
+      margin: 0.2rem 0;
+    }
+
+    &-label {
+      font-family: monospace;
+    }
+
+    &-input {
+      margin: 0.2rem 0;
+      border:none;
+      border-radius: 5px;
+      max-width: 140px;
+      font-family: monospace;
+      padding: 0.1rem 0 0.1rem 0.2rem;
+      
+      &:focus {
+        border: 2px solid #a817bb;
+        outline: 0;
+      }
+
+      &:hover {
+        border: 2px solid #a817bb;
+      }
+    }
+
+    &-button {
+      border-radius: 5px;
+      background-color: white;
+      border:none;
+      height: 20px;
+      width: 60px;
+      margin-top:0.5rem;
+      font-family: monospace;
+      transition: ease-out 0.3s;
+      outline: none;
+      position: relative;
+      z-index: 1;
+
+      &::before {
+        transition: 0.5s all ease;
+        position: absolute;
+        top:0;
+        left:50%;
+        right:50%;
+        bottom:0;
+        opacity: 0;
+        content: "";
+        background-color: rgba(201, 225, 236, 0.986);
+        border-radius: 5px;
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: black;
+
+        &::before {
+          transition: 0.5s all ease;
+          left:0;
+          right:0;
+          opacity: 1;
+          z-index: -1;
+        }
+      }
+    }
+
+  }
+
+  &__signup {
+    color: white;
+    font-family: monospace;
+  }
+}
+
+
+

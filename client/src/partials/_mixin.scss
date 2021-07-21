@@ -1,0 +1,63 @@
+@use './variables' as *;
+@use './animations' as *;
+
+@mixin light{
+  font-family: 'sui generis', sans-serif;
+  font-style: normal;
+  font-weight: 200;
+}
+
+
+@mixin regular {
+  font-family: 'sui generis', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@mixin bold {
+  font-family: 'sui generis', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
+
+@mixin tablet {
+  @media (min-width: $tablet-breakpoint) {
+      @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-breakpoint) {
+      @content;
+  }
+}
+
+@mixin cardGlow {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -1px;
+  background-size: 400%;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  z-index: -6;
+  animation: animateBackground 20s linear infinite;
+  @content;
+}
+
+@mixin socialsDimension{
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 15px;
+  font-size: 18px;
+  font-family: monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  @content;
+
+}

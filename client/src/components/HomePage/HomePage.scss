@@ -1,0 +1,380 @@
+@use "../../partials/animations" as *;
+@use "../../partials/mixin" as *;
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*:focus,
+*:active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+.header {
+  
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #340844;
+
+  }
+}
+
+.nav {
+
+  &__logo {
+    height: 160px;
+    width: 160px;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+
+    &-image {
+      width: 25px;
+      height: 25px;
+
+      @include tablet {
+        width: 30px;
+        height: 30px;
+      }
+
+      @include desktop {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    &-box {
+      @include socialsDimension;
+      width: 35px;
+      height: 35px;
+      margin: 10px;
+     
+
+      @include tablet {
+        @include socialsDimension;
+        width: 50px;
+        height: 50px;
+        margin: 0 2rem;
+      }
+
+      @include desktop {
+        @include socialsDimension;
+        width: 50px;
+        height: 50px;
+      }
+
+
+      &:hover .nav__container-tooltip {
+        top: -30px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      &:hover .nav__container-tooltip,
+      &:hover span{
+        text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    &-tooltip {
+      position: absolute;
+      top: 0;
+      font-size: 14px;
+      background-color: #ffffff;
+      color: #ffffff;
+      padding: 5px 8px;
+      border-radius: 5px;
+      box-shadow: 0 10px 10px rgba(255, 255, 255, 0.1);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+      &::before {
+        position: absolute;
+        content: "";
+        height: 8px;
+        width: 8px;
+        background-color: #ffffff;
+        bottom: -3px;
+        left: 50%;
+        transform: translate(-50%) rotate(45deg);
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+
+    }
+
+    &-left {
+      display: flex;
+      flex-direction: column;
+
+      @include tablet {
+        flex-direction: row;
+        margin-top: 3rem;
+      }
+    }
+
+    &-right {
+      display: flex;
+      flex-direction: column;
+
+      @include tablet {
+        flex-direction: row;
+        margin-top: 3rem;
+      }
+    }
+    
+    &-list {
+
+    }
+
+    &-logo {
+      height: 150px;
+      width: 150px;
+    }
+  }
+
+}
+
+.homepage {
+
+  &__hero {
+    background-image:url('../../assets/images/background.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+
+
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: #d3bfda;
+    z-index: 1;
+    height:auto;
+
+    @include tablet {
+      height:500px;
+    }
+
+    @include desktop {
+      height:600px;
+    }
+
+    &-top {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &__card {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+    border: 1px solid black;
+    width: 130px;
+    height: 180px;
+    border-radius: 15px;
+    background-color: white;
+    border:none;
+    overflow: hidden;
+    z-index: 1;
+    transition: transform .2s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+   
+
+    &-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      width: 50%;
+      z-index: 1;
+
+      &-content {
+        overflow: hidden;
+        width: 150px;
+        left: -42px;
+        height: 160px;
+        position: relative;
+      }
+    }
+
+    &-right{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      background-color: black;
+      border:none;
+      width: 50%;
+      border:none;
+      border-radius: 0px 15px 15px 0px;
+      z-index: 1;
+    }
+
+    &-image {
+      position: absolute;
+      top:30px;
+      width: 250px;
+      height: 150px;
+      overflow: hidden;
+      z-index: 1;
+
+      &-damage {
+        position: absolute;
+        top: 30px;
+        left: 50px;
+        width: 140px;
+        height: 128px;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      &-healer {
+        position: absolute;
+        top: 22px;
+        left: 65px;
+        width: 148px;
+        height: 138px;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      &-flex {     
+        position: absolute;
+        top: 14px;
+        left: 36px;
+        width: 168px;
+        height: 152px;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      &-title {
+        margin-bottom: 1.5rem;
+        background-color: black;
+        width: 100%;
+        color: white;
+        text-align: center;
+        font-family: monospace;
+      }
+    }
+
+    &-input {
+      color: white;
+      font-family: monospace;
+      font-size: 6px;
+    }
+
+    &-text {
+      color: #F5F5DC;
+      font-family: monospace;
+      font-size: 8px;
+
+      &-description {
+        color: #F5F5DC;
+        font-family: monospace;
+        font-size: 8px;
+        padding-bottom: 1.1rem;
+      }
+    }
+
+    &-description {
+      position: absolute;
+      color: rgb(255, 255, 255);
+      font-family: monospace;
+      font-size: 5px;
+      bottom: 10px;
+      left:7px;
+    }
+  }
+}
+
+
+.glow-damage:before,
+.glow-damage:after {
+  background: linear-gradient(45deg, #460f12, #d81a23);
+  @include cardGlow
+  
+
+}
+
+.glow-tank:before,
+.glow-tank:after {
+  background: linear-gradient(45deg, #2c65b9, #2525b6);
+  @include cardGlow
+
+}
+
+.glow-healer:before,
+.glow-healer:after {
+  background: linear-gradient(45deg, rgb(177, 177, 7), #eecd10);
+  @include cardGlow
+
+}
+
+.glow-flex:before,
+.glow-flex:after {
+  background: linear-gradient(45deg, #460f12, #d81a23,#2c65b9, #2525b6,rgb(177, 177, 7), #eecd10);
+  @include cardGlow
+ 
+}
+
+
+.glow:after {
+  filter: blur(30px);
+}
+
+
+.facebook:hover,
+.facebook:hover .nav__container-tooltip,
+.facebook:hover .nav__container-tooltip::before {
+  background-color: #3b5999;
+  color: #ffffff;
+}
+
+.twitter:hover,
+.twitter:hover .nav__container-tooltip,
+.twitter:hover .nav__container-tooltip::before {
+  background-color: #46c1f6;
+  color: #ffffff;
+}
+
+
+.instagram:hover,
+.instagram:hover .nav__container-tooltip,
+.instagram:hover .nav__container-tooltip::before {
+  background-color: #e1306c;
+  color: #ffffff;
+}
+
+
+.youtube:hover,
+.youtube:hover .nav__container-tooltip,
+.youtube:hover .nav__container-tooltip::before {
+  background-color: #de463b;
+  color: #ffffff;
+}
